@@ -1,70 +1,6 @@
 <html>
 <head>
 <title>Wilson Block</title>
-<style type="text/css">
-    
-.wohmanOn {
-	background: rgb(0,0,0);
-	opacity: 1;
-	z-index: 2;
-	right: 0;
-	-webkit-animation-name: wohmanOn;
-	-webkit-animation-duration: 1s;
-	-webkit-animation-timing-function: ease-in-out;
-	-webkit-animation-fill-mode: forwards;
-}
-
-
-.wohmanOff {
-	right: 0;
-	z-index: 1;
-	-webkit-animation-name: wohmanOff;
-	-webkit-animation-duration: 1s;
-	-webkit-animation-timing-function: ease-in-out;
-	-webkit-animation-fill-mode: forwards;
-}
-
-@-webkit-keyframes wohmanOn {
-	0% {
-		left: 0;
-		-webkit-transform: rotate(0) scale(1);
-		z-index: 0;
-	}
-	
-	50% {
-		left: 60%;
-		-webkit-transform: rotate(-30deg) scale(.75);
-		opacity: 1;
-		z-index: 2;
-	}
-	
-	100% {
-		left: 0;
-		-webkit-transform: rotate(0) scale(1);
-	}
-}
-
-@-webkit-keyframes wohmanOff {
-	0% {
-		left: 0;
-		-webkit-transform: rotate(0) scale(1);
-		z-index: 2;
-	}
-	
-	50% {
-		left: -60%;
-		-webkit-transform: rotate(30deg) scale(.75);
-		z-index: 1;
-		opacity: 1;
-	}
-	
-	100% {
-		left:0;
-		-webkit-transform: rotate(0) scale(1);
-	}
-}
-
-</style>
 <script src="_assets/jquery-1.9.1.min.js"></script>
 </head>
 <body>
@@ -84,12 +20,17 @@
 			<li>Starch grains from the rhizomes of Typha(cattails, bullrushes) as flour have been identified from grinding stones in Europe dating back to 30,000 years ago.</li>
 			<li>Starch grains from sorghum were found on grind stones in caves in Ngalue, Mozambique dating up to 100,000 years ago.</li>
 		</div>
+		
+		<div>
+			<img src="_assets/left-pointer.png">
+		</div>
+		
 		<span class="wilson-pre"><</span>
 		<span class="wilson-next">></span>
 	</span>
 </span>
 
 <script src="wilsonblock.js" type="text/javascript"></script>
-<script>var wilsonWindow = new wilsonblock("wilsonExample");</script>    
+<script>var wilsonWindow = new wilsonblock("wilsonExample", "vFlipOn", "vFlipOff");</script>    
 </body>
 </html>

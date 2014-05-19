@@ -1,86 +1,70 @@
-//Url to the 
-function thisRoot (filename) {
-	var scripts = document.documentElement.getElementsByTagName ('script');
-	for (var i=0; i<scripts.length; i++)
-		if (scripts[i].src && scripts[i].src.substr (scripts[i].src.length - filename.length) == filename)
-			return scripts[i].src.substr (0, scripts[i].src.length - filename.length);
-	return window.location.href.substr(0, window.location.href.length - window.location.pathname.length + 1)
-}
-
-var cssUrl = "wilsonblock.css";
-console.log(thisRoot("wilsonblock.js"));
-
+////WilsonBlock////
 function wilsonblock(windowId, classOn, classOff) {
-    //Check classes
-    var wilsonWindow = document.getElementById(windowId);
-    classOn = classOn || "opacityOn";
-    classOff = classOff || "opacityOff";
-    
-    //Load CSS
-    var wilsonCSS = document.createElement("link");
-	console.log(location);
-	wilsonCSS.href = cssUrl;
-	wilsonCSS.rel = "stylesheet";
-	document.body.appendChild(wilsonCSS);
+	//Check classes
+    var classOn  = classOn  || "opacityOn";
+    var classOff = classOff || "opacityOff";    
 	
 	//Find all slides. Labeled as div tags
-	var slides = $("#" + windowId).find("div");	
-	var currentSlide = 0;
-	console.log(slides);
-	
-    //Clear All slides
-	function clearSlides() {
-		$(slides).each(function() {
+	this.window = document.getElementById(windowId);
+	this.slides = $(this.window).find("div");	
+	this.currentSlide = 0;
+
+	//Clear All Slides
+	this.clearSlides = function() {
+		$(this.slides).each(function() {
 			if(this.display != "none") {
 				$(this).addClass(classOff);
 				$(this).removeClass(classOn);
 			}
-		})
+		})		
 	}
 	
-    //Show
-	function showSlide(newSlide) {
-		$(newSlide).removeClass(classOff);
-		$(newSlide).addClass(classOn);
-		window.height = $(newSlide).height();
-		var height = $(newSlide).height();
-		console.log(height);
+	//Show current slide.
+	this.showSlide = function() {
+		$(this.slides[this.currentSlide]).removeClass(classOff);
+		$(this.slides[this.currentSlide]).addClass(classOn);
 	}
 	
-    //Next + Previous
-	function nextSlide() {
-		currentSlide++;
-		showSlide(slides[currentSlide]);
-	}
-	
-	function prevSlide() {
-		currentSlide--;
-		showSlide(slides[currentSlide]);
-	}
-	
-    //These tags will do change slide
-	$(wilsonWindow).find(".wilson-next").click(function() {
-		if(currentSlide == (slides.length-1)) {
+    //Next + Previous//
+	this.nextSlide=function() {
+		if(this.currentSlide == ($(this.slides).length-1)) {
 			return true;
 		} else {
-			clearSlides();
-			nextSlide();
+			this.currentSlide++;
+			this.clearSlides();
+			this.showSlide();
 		}
-	});
-	
-	$(wilsonWindow).find(".wilson-pre").click(function() {
-        console.log(this);
-		if(currentSlide == 0) {
+	}
+	this.prevSlide=function() {
+		if(this.currentSlide == 0) {
 			return true;
 		} else {
-			clearSlides();
-			prevSlide();
+			this.currentSlide--;
+			this.clearSlides();
+			this.showSlide();
 		}
-	});
-	clearSlides();
-	showSlide(slides[0]);
+	}
+				
+    //These tags will do change slide				
+	this.nextButton=$(this.window).find(".wilson-next");
+	$(this.nextButton).on("click", $.proxy( this.nextSlide, this));
+		
+	this.prevButton  = $(this.window).find(".wilson-pre");
+	$(this.prevButton).on("click", $.proxy( this.prevSlide, this));
+			
+	//Set the Slides		
+	this.clearSlides();
+	this.showSlide();	
 }
 
 
 
-
+$(document).ready(function() {
+	//Load CSS
+	var cssUrl = "wilsonblock.css";
+    var wilsonCSS = document.createElement("link");
+	console.log(location);
+	wilsonCSS.href = cssUrl;
+	wilsonCSS.rel = "stylesheet";
+	document.head.appendChild(wilsonCSS);	
+})
