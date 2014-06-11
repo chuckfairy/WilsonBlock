@@ -1,0 +1,201 @@
+@import url(http://fonts.googleapis.com/css?family=Playfair+Display+SC:900italic);
+@import url(http://fonts.googleapis.com/css?family=Exo+2:200);
+
+html, body {
+	margin:0;
+	padding:0;
+}
+
+body {
+	
+}
+
+h1, h2, h3, h4 {
+	font-family: 'Playfair Display SC', serif;
+	font-style: italic;
+	margin: 0;
+}
+
+p, span, a {
+	font-family: "Exo 2", sans-serif;
+}
+
+
+
+
+
+#content {
+	margin: 0;
+	position: relative;
+	background-image: url("rosesblack.jpg");
+	margin-bottom: 20em;
+	padding: 20px;
+}
+
+/**************Nav**************/
+
+#nav {
+	position:relative;
+	right: 3em;
+	z-index: 5;
+	border-right:4px solid rgb(0,0,0);
+	box-shadow: -2px 2px 10px -2px rgb(0,0,0);
+	/* width: 7em; */
+	text-align: right;
+	background: rgb(222,222,222);
+	float: right;
+}
+
+#nav a {
+	display: block;
+	font-size: 1.5em;
+	padding:5px;
+}
+
+#nav a:nth-of-type(2n-1) {background:rgb(200,200,200);}
+#nav a:hover {background: rgb(0,0,255);color:rgb(255,255,255);}
+
+/**************Content**************/
+
+#documentation {
+	background: rgb(180,200,255);
+	width: 95%;
+	position: relative;
+	margin: 2em auto 0 auto;
+	padding: 0 0 20px 0;
+	/* margin: 3em auto 20em auto; */
+	box-shadow: 0 0 10px 0px rgb(0,0,0);
+}
+
+#documentation > h2{
+	font-size: 2.6em;
+	text-align: left;
+	border-bottom: 4px solid rgb(0,0,0);
+	background: rgb(255,255,255);
+	padding:6px 0 6px 10px;
+	width: 100.5%;
+	position: relative;
+	margin: 0 auto;
+}
+
+#documentation > h3 {
+	padding: 5px;
+	font-family: "Exo 2";
+	font-size: 1.5em;
+	font-style: normal;
+}
+
+#documentation pre {
+	font-size: 1.2em;
+	padding: 5px;
+	background: rgb(222,222,255);
+	display: inline-block;
+	position: relative;
+	border: none;
+	box-shadow: 6px 6px 0 rgb(0,0,0);
+	margin-left: 20px;
+}
+
+#documentation pre span {font-family: serif;font-weight: 100;}
+
+#download {
+	padding: 5px;
+	width: 50%;
+	position:relative;
+	margin: 1em auto 1em auto;
+	background: rgb(0,0,0);
+}
+
+#download a {
+	display:block;
+	font-size: 1.5em;
+	background: rgb(255,255,255);
+	padding: 5px;
+	text-align: center;
+}
+
+#download a:first-of-type {
+	margin-bottom: 5px;
+	background: rgb(222,222,222);	
+}
+
+#download a:hover {background: rgb(0,0,0);color:rgb(255,255,255);}
+
+/**************Footer**************/
+
+#about-footer {
+	z-index: -1;
+	background: rgb(80,80,80);
+	color: rgb(255,255,255);
+	position: fixed;
+	bottom: 0;
+	height: 20em;
+	width: 100%;
+}
+
+#about-footer h2 {
+	font-family: "Exo 2";
+	font-style: normal;
+	font-size: 2em; 
+	padding: 5px;
+	margin: 5px 0 10px 10px;
+	border-bottom: 4px solid rgb(180,200,255);
+	width: 50%;
+}
+
+#about-footer img {
+	width: 7em;
+	float: left;
+	align:left;
+	border-radius: 100%;
+	margin: 10px;
+}
+
+#about-footer a {
+	color: rgb(180,200,255);
+	display: block;
+}
+
+
+
+/**************WilsonStyling**************/
+
+.wilson-window div h1 {
+	position: relative;
+	margin: 0 auto;
+	width: 80%;
+	padding: 5px 0;
+	margin-top: 2.8em;
+	font-size: 3.2em;
+	text-align: center;
+}
+
+.wilson-window div h2 {
+	padding: 8px;
+	border-bottom: 2px solid rgb(0,0,0);
+	font-size: 2.4em;
+	background: rgb(180,200,255);
+}
+
+.wilson-window div li {
+	list-style: square;
+	font-size: 1.5em;	
+}
+
+.wilson-quote {
+	width: 60%;
+	padding: 5px;
+	background: rgb(200,200,200);
+	box-shadow: 4px 4px 0 rgb(0,0,0);
+	font-size: 1.2em;
+	display: block;
+	position: relative;
+	margin: 0 auto;
+}
+
+
+
+
+
+
+

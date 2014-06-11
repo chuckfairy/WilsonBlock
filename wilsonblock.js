@@ -14,8 +14,8 @@ function WilsonBlock(windowId, classOn, classOff) {
 	this.clearSlides = function() {
 		$(this.slides).each(function() {
 			if(this.display != "none") {
-				$(this).addClass(classOff);
 				$(this).removeClass(classOn);
+				$(this).addClass(classOff);
 			}
 		})		
 	}
@@ -48,23 +48,26 @@ function WilsonBlock(windowId, classOn, classOff) {
 
 //Set up the slides and Buttons
 WilsonBlock.prototype.init = function() {
-	this.buttonSetup();
 	this.buttonEnable();
+	this.buttonSetup();
 	this.clearSlides();
-	this.setTheme("wilsonblock");
+	this.setTheme("wilsonbones");
 	this.showSlide();
 	return this;
 }
 
 //Sets up buttons display
-WilsonBlock.prototype.buttonSetup = function() {
-	//Display Buttons
+WilsonBlock.prototype.buttonSetup = function() {	
+	//Hide Non-usable
 	$(this.nextButton).css("display", "block");
 	$(this.prevButton).css("display", "block");
 	
-	//Hide Non-usable
-	if(this.currentSlide == (this.slides.length-1)) {$(this.nextButton).css("display", "none");}	
-	if(this.currentSlide == 0) {$(this.prevButton).css("display", "none");}		
+	if(this.currentSlide == (this.slides.length-1)) {
+		$(this.nextButton).css("display", "none");
+	}	
+	if(this.currentSlide == 0) {
+		$(this.prevButton).css("display", "none");
+	}		
 }
 
 //Create and Enable Buttons
@@ -80,7 +83,7 @@ WilsonBlock.prototype.buttonEnable = function() {
 
 //Set slide to specific slide number
 WilsonBlock.prototype.setSlide = function(slideNumber) {
-	if(parseInt(slideNumber) < this.slides.length) {
+	if(parseInt(slideNumber) < (this.slides.length + 1)) {
 		this.currentSlide = parseInt(slideNumber)-1;
 		this.showSlide();
 	}
@@ -95,6 +98,27 @@ WilsonBlock.prototype.autoSlide = function(timeOut) {
 	} , parseInt(timeOut))
 }
 
+WilsonBlock.prototype.createPointers = function(preText, nextText){
+	preText = preText || "<";
+	nextText = nextText || ">";
+	
+	var pre  = document.createElement("span");
+	var next = document.createElement("span");
+	
+	pre.setAttribute("class", "wilson-pre");
+	next.setAttribute("class", "wilson-next");
+	
+	pre.innerHTML = preText;
+	next.innerHTML = nextText;
+	
+	this.window.appendChild(pre);
+	this.window.appendChild(next);
+	console.log(pre);
+	
+	this.buttonEnable();
+	this.buttonSetup();
+}
+
 /**************Set Theme**************/
 WilsonBlock.prototype.setTheme = function(theme) {
 	var cssUrl = undefined;
@@ -102,7 +126,7 @@ WilsonBlock.prototype.setTheme = function(theme) {
 		var scriptLocation = this.src.split("wilsonblock/").pop();
 		if(scriptLocation == "wilsonblock.js") {
 			var serverLocation = this.src.split("wilsonblock/")[0];
-			cssUrl = serverLocation + "wilsonblock/themes/" + theme + ".css";
+			cssUrl = serverLocation + "wilsonblock/_themes/" + theme + ".css";
 		}
 	});
 	
@@ -112,6 +136,6 @@ WilsonBlock.prototype.setTheme = function(theme) {
 		wilsonCSS.href = cssUrl;
 		wilsonCSS.rel = "stylesheet";
 		document.head.appendChild(wilsonCSS);
-	}	
+	}
 }
 

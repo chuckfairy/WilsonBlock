@@ -13,6 +13,7 @@
 .wilson-window div {
 	position: absolute;
 	margin: 0 auto;
+	
 	background: rgb(255,255,255);
 	height: 25em;
 	width:100%;
