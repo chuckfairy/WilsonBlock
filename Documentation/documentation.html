@@ -1,10 +1,12 @@
 <html>
 <head>
 <title>Wilson Block</title>
+<meta name="viewport" content="width=device-width">
 
 <script src="../_assets/jquery-1.9.1.min.js"></script>
 <script src="../wilsonblock.js" type="text/javascript"></script>
 <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+
 <link rel="stylesheet" href="_assets/doc.css">
 </head>
 <body>
@@ -35,7 +37,7 @@
 	<div id="nav">
 		<a href="javascript:scrollBottom();">Download</a>
 		<a href="#documentation">Documentation</a>
-		<a href="#git">Git</a>
+		<a href="https://github.com/chuckfairy/WilsonBlock">Git</a>
 		<a href="javascript:scrollBottom();">About</a>
 	</div>
 	
@@ -130,6 +132,7 @@ wilson.pointerCreate(
 <script>
 var titleWilson = new WilsonBlock("titleWilson", "wohmanOn", "wohmanOff");
 titleWilson.createPointers();
+titleWilson.setTheme("glamore");
 
 var autoSlideWilson = new WilsonBlock("autoSlideWilson");
 autoSlideWilson.autoSlide(3000);
