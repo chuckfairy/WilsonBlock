@@ -39,7 +39,7 @@
 	padding: 5px 10px;
 	display: inline;
 	z-index: 5;
-	top: 60%;
+	bottom: 10%;
 	position: absolute;
 	cursor: hand;
 	border: 2px solid rgb(255,255,255);
@@ -83,20 +83,21 @@
 	opacity: 1;
 	z-index: 2;
 	right: 0;
-	-webkit-animation-name: wohmanOn;
-	-webkit-animation-duration: 1.5s;
-	-webkit-animation-timing-function: ease-in-out;
-	-webkit-animation-fill-mode: forwards;
+	
+	-webkit-animation: wohmanOn 1.5s forwards ease-in-out;
+	-moz-animation:    wohmanOn 1.5s forwards ease-in-out;
+	-o-animation:      wohmanOn 1.5s forwards ease-in-out; 
+	animation:         wohmanOn 1.5s forwards ease-in-out;
 }
 
 
 .wohmanOff {
 	right: 0;
 	z-index: 1;
-	-webkit-animation-name: wohmanOff;
-	-webkit-animation-duration: 1.5s;
-	-webkit-animation-timing-function: ease-in-out;
-	-webkit-animation-fill-mode: forwards;
+	-webkit-animation: wohmanOff 1.5s forwards ease-in-out;
+	-moz-animation:    wohmanOff 1.5s forwards ease-in-out;
+	-o-animation:      wohmanOff 1.5s forwards ease-in-out; 
+	animation:         wohmanOff 1.5s forwards ease-in-out;
 }
 
 @-webkit-keyframes wohmanOn {
@@ -148,10 +149,13 @@
 .vFlipOn {
 	-webkit-transform-style: preserve-3d;
 	-webkit-transform-origin: top right;
-	-webkit-animation-name: vFlipOn;
-	-webkit-animation-duration: 1.5s;
-	-webkit-animation-timing-function: ease-in;
-	-webkit-animation-fill-mode: forwards;
+	
+	
+	
+	-webkit-animation: wohmanOff 1.5s forwards ease-out;
+	-moz-animation:    wohmanOff 1.5s forwards ease-out;
+	-o-animation:      wohmanOff 1.5s forwards ease-out; 
+	animation:         wohmanOff 1.5s forwards ease-out;
 }
 
 @-webkit-keyframes vFlipOn {
@@ -177,16 +181,17 @@
 .vFlipOff {
 	-webkit-transform-style: preserve-3d;
 	-webkit-transform-origin: top right;
-	-webkit-animation-name: vFlipOff;
-	-webkit-animation-duration: 1.5s;
-	-webkit-animation-timing-function: ease-out;
-	-webkit-animation-fill-mode: forwards;
+	
+	-webkit-animation: wohmanOff 1.5s forwards ease-out;
+	-moz-animation:    wohmanOff 1.5s forwards ease-out;
+	-o-animation:      wohmanOff 1.5s forwards ease-out; 
+	animation:         wohmanOff 1.5s forwards ease-out;
 }
 
 @-webkit-keyframes vFlipOff {
 	0% {
 		z-index: 1;
-		-webkit-transform: rotateY(0) rotateX();
+		-webkit-transform: rotateY(0) rotateX(0);
 		opacity: 1;
 	}
 	

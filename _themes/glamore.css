@@ -1,6 +1,6 @@
 /**************Glamor**************/
 
-.wilson-window div h1 {
+.glamore div h1 {
 	position: relative;
 	margin: 0 auto;
 	width: 80%;
@@ -10,14 +10,14 @@
 	text-align: center;
 }
 
-.wilson-window div h2 {
+.glamore div h2 {
 	padding: 8px;
 	border-bottom: 2px solid rgb(0,0,0);
 	font-size: 2.4em;
 	background: rgb(180,200,255);
 }
 
-.wilson-window div li {
+.glamore div li {
 	list-style: square;
 	font-size: 1.5em;	
 }

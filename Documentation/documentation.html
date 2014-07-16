@@ -46,14 +46,8 @@
 		
 		<h3>The Html</h3>
 		
-		<pre class="prettyprint lang-html" id="htmlScript"><?php echo htmlentities("
-<span class='wilson-window' id='yourWilsonTag'>
-  
-  <!--Each slide has it's own div -->
-  <div><h1>This Slide</h1></div>
-  <div><h2>That slide</h2></div>
-  
-</span>");?>
+		<pre class="prettyprint lang-html" id="htmlScript">
+&lt;span class='wilson-window' id='yourWilsonTag'&gt;<br/>  <br/>  &lt;!--Each slide has it's own div --&gt;<br/>  &lt;div&gt;&lt;h1&gt;This Slide&lt;/h1&gt;&lt;/div&gt;<br/>  &lt;div&gt;&lt;h2&gt;That slide&lt;/h2&gt;&lt;/div&gt;<br/>  <br/>&lt;/span&gt;
 		</pre>
 		
 		<h3>The Js</h3>
@@ -136,12 +130,15 @@ titleWilson.setTheme("glamore");
 
 var autoSlideWilson = new WilsonBlock("autoSlideWilson");
 autoSlideWilson.autoSlide(3000);
+autoSlideWilson.setTheme("glamore");
 
 var pointerWilson = new WilsonBlock("pointerWilson");
 pointerWilson.createPointers("pre", "next");
+pointerWilson.setTheme("glamore");
 
 var setWilson = new WilsonBlock("setWilson");
 setWilson.setSlide(2);
+setWilson.setTheme("glamore");
 
 function scrollBottom() {
 	$("body").animate({scrollTop: $("body")[0].scrollHeight}, 1000);

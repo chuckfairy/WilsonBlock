@@ -1,9 +1,28 @@
-/**************WilsonBlock**************/
+/**************WilsonBlock Div Carousel**************/
 function WilsonBlock(windowId, classOn, classOff) {
 	"use strict";
 	//Check classes 
     var classOn  = classOn  || "opacityOn";
-    var classOff = classOff || "opacityOff";    
+    var classOff = classOff || "opacityOff";  
+    
+    //Current Themes
+    this.themes = []; 
+    
+	//Find WilsonBlock folder
+	var scripts = document.getElementsByTagName("script");
+	for(var i=0;i < scripts.length;i++) {
+		var scriptLocation = scripts[i].src.split("wilsonblock/").pop();
+		if(scriptLocation == "wilsonblock.js") {
+			this.serverLocation = scripts[i].src.split("wilsonblock/")[0] + "/wilsonblock/"; 
+		}
+	};
+	
+	//jQuery Load
+	if(typeof($()) != "undefined" ) {
+		var jqueryScript = document.createElement("script");
+		jqueryScript.src = this.serverLocation + "_assets/jquery-1.9.1.min.js";
+		document.head.appendChild(jqueryScript);
+	}
 	
 	//Find all slides. Labeled as div tags
 	this.window = document.getElementById(windowId);
@@ -113,7 +132,6 @@ WilsonBlock.prototype.createPointers = function(preText, nextText){
 	
 	this.window.appendChild(pre);
 	this.window.appendChild(next);
-	console.log(pre);
 	
 	this.buttonEnable();
 	this.buttonSetup();
@@ -121,21 +139,44 @@ WilsonBlock.prototype.createPointers = function(preText, nextText){
 
 /**************Set Theme**************/
 WilsonBlock.prototype.setTheme = function(theme) {
-	var cssUrl = undefined;
-	$("script").each(function() {
-		var scriptLocation = this.src.split("wilsonblock/").pop();
-		if(scriptLocation == "wilsonblock.js") {
-			var serverLocation = this.src.split("wilsonblock/")[0];
-			cssUrl = serverLocation + "wilsonblock/_themes/" + theme + ".css";
+	//Check if theme is loaded
+	if(!inArray(theme, this.themes)) {
+		cssUrl = this.serverLocation + "_themes/" + theme + ".css";		
+		//Load and Append Css
+		if(typeof(cssUrl) !== "undefined") {
+			var wilsonCSS = document.createElement("link");
+			wilsonCSS.href = cssUrl;
+			wilsonCSS.rel = "stylesheet";
+			document.head.appendChild(wilsonCSS);
 		}
-	});
-	
-	//Load and Append Css
-	if(typeof(cssUrl) !== "undefined") {
-		var wilsonCSS = document.createElement("link");
-		wilsonCSS.href = cssUrl;
-		wilsonCSS.rel = "stylesheet";
-		document.head.appendChild(wilsonCSS);
+		
+		this.themes.push(theme);
 	}
+	
+	$(this.window).addClass(theme);
 }
+
+//////Utils///////
+
+function inArray(needle, haystack) {
+	if(typeof(haystack) == "undefined") {return false;}
+	console.log(haystack);
+	for(var i=0; i < haystack.length;i++) {
+		console.log(haystack[i]);
+		if(haystack[i] == needle) {
+			return true;
+		}
+	}
+	return false;
+}
+
+
+
+
+
+
+
+
+
+
 
