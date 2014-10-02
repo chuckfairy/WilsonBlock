@@ -1,65 +1,66 @@
 /**************Wilson window**************/
-.wilson-window {
+.wilsonbones {
 	display: block;
 	z-index: 1;
 	width: 100%;
-	
-	height: 25em;
+	max-width: 50em;
+	height: 28em;
 	position: relative;
 	overflow: hidden;
-	padding: 40px 0;
 	margin: 0 auto 10px auto;
+	border: 1px solid rgb(0,0,0);
+	font-size: 16px;
 }
 
 /**************SLIDES Styling**************/
-.wilson-window div {
-	position: absolute;
+.wilsonbones-previewer {
+	position: relative;
 	margin: 0 auto;
 	right: 0;
 	left:0;
 	background: rgb(255,255,255);
 	height: 25em;
-	width:90%;
+	width:100%;
 	max-width: 60em;
 	overflow-y: auto;
+	overflow-x: hidden;
 	
-	-webkit-transition: all .5s ease-in-out;
-	-moz-transition: all .5s ease-in-out;
-	-ms-transition: all .5s ease-in-out;
-	transition: all .5s ease-in-out;
+	-webkit-transition: all .7s ease-in-out;
+	-moz-transition: all .7s ease-in-out;
+	-ms-transition: all .7s ease-in-out;
+	transition: all .7s ease-in-out;
 }
+
+.wilsonbones-previewer img {
+	width: 100%;
+	display: block;
+	position: absolute;
+	-webkit-transition: all .7s ease-in-out;
+	-moz-transition: all .7s ease-in-out;
+	-ms-transition: all .7s ease-in-out;
+	transition: all .7s ease-in-out;
+}
+
 
 /**************Slide Actions**************/
-
-.wilson-pre, .wilson-next {
-	background: rgb(0,0,0);
-	color: rgb(255,255,255);
-	box-shadow: 0 0 10px 0 rgb(0,0,0);
-	font-size: 30px;
-	padding: 5px 10px;
-	display: inline;
-	z-index: 5;
-	bottom: 10%;
+.wilsonbones-navigator {
 	position: absolute;
-	cursor: hand;
-	border: 2px solid rgb(255,255,255);
-	font-family: sans-serif;
-	font-size: 2em;
+	width: 100%;
+	bottom: 0;
+	height: 3em;
+	padding: 4px 0;
+	background: rgb(230,230,230);
+	border-top: 1px solid rgb(0,0,0);
 }
 
-.wilson-pre {
-	left: 20px;
-}
+.wilsonbones-navigator img {
+	float: left;
 
-.wilson-next {
-	right: 20px;
-}
-
-.wilson-slides {
-	position: absolute;
-	top: -10px;
-	font-size: 20px;
-	color: rgb(255,255,255);
+	width: 2.8em !important;
+	height: 2.8em;
+	cursor: pointer;
+	margin: 0 5px 0 5px;
+	border: 1px solid rgb(0,0,0);
 }
 
 
@@ -74,7 +75,14 @@
 .opacityOff {
 	opacity: 0;
 	z-index: 0;
-	
+}
+
+.slideOn {
+	-webkit-transform: translateX(0);
+}
+
+.slideOff {
+	-webkit-transform: translateX(40px);
 }
 
 
